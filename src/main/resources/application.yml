@@ -1,0 +1,46 @@
+spring:
+  profiles:
+    active:
+      - development
+  application:
+    name: "Security template for testing"
+  datasource:
+    url: jdbc:postgresql://dbpostgres.co:5432/postgres?createDatabaseIfNotExist=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: template
+    password: template@2023
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  servlet:
+    multipart:
+      max-file-size: 80MB
+  mail:
+    username: template@template.template
+    password: Template@2023
+    host: smtp-mail.outlook.com
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp-mail.outlook.com
+          auth: false
+    port: 587
+
+jwt:
+  header: Authorization
+  secret: "something"
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    operations-sorter: method
