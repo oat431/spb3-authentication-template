@@ -4,50 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dee923a-575b-422e-9bda-3f5f01775778" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/AuthApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/config/SwaggerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/config/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/controller/AuthenticationRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/controller/JwtAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/controller/JwtAuthenticationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/controller/JwtAuthenticationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/controller/JwtAuthenticationTokenFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dao/AuthorityDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dao/AuthorityDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dao/LocationDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dao/LocationDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dao/UserDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dto/LocationDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/dto/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/entity/Authority.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/entity/AuthorityName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/entity/Gender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/entity/JwtUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/entity/Location.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/repository/AuthorityRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/repository/LocationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/service/JwtAuthenticationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/service/JwtUserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/security/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/util/BackendMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/util/CloudStorageHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/util/JwtTokenUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sahachan/template/auth/util/JwtUserFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sahachan/template/auth/AuthApplicationTests.java" beforeDir="false" />
+    <list default="true" id="17117124-6ff2-40d9-934c-c0bc2ff84c53" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/src/main/java/panomete/jwtauth/JwtauthApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jwtauth/src/test/java/panomete/jwtauth/JwtauthApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,25 +30,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="jwtauth" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="jwtauth" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="jwtauth" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="spb3-authentication-template" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -89,20 +44,13 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="AnnotationType" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QWSFxOMlKquOGndU9N5QdhX1iB" />
+  <component name="ProjectId" id="2QWafuu0MJGEUd88OFRAXa6R9kh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -117,62 +65,33 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "2023-refactoring",
-    "last_opened_file_path": "D:/programming_practice/java",
+    "last_opened_file_path": "D:/programming_practice/java/spb3-authentication-template",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "2013f73db65309e76c6ed364d05a0c18",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="sahachan.jwtauth" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="JwtauthApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sahachan.jwtauth.JwtauthApplication" />
-      <module name="auth" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sahachan.jwtauth.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JwtauthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="JwtauthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="jwtauth.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="sahachan.jwtauth.JwtauthApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="panomete.jwtauth.JwtauthApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.JwtauthApplication" />
-      <item itemvalue="Spring Boot.JwtauthApplication" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.JwtauthApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4dee923a-575b-422e-9bda-3f5f01775778" name="Changes" comment="" />
-      <created>1685467748352</created>
+      <changelist id="17117124-6ff2-40d9-934c-c0bc2ff84c53" name="Changes" comment="" />
+      <created>1685471901246</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685467748352</updated>
-      <workItem from="1685467749753" duration="1977000" />
-      <workItem from="1685470081529" duration="582000" />
-      <workItem from="1685470706552" duration="1190000" />
+      <updated>1685471901246</updated>
+      <workItem from="1685471903186" duration="343000" />
+      <workItem from="1685472410044" duration="39000" />
     </task>
     <servers />
   </component>
