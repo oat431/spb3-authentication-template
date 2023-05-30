@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db.lxjsajaphfdsacorkpay.supabase.co:5432/postgres?createDatabaseIfNotExist=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: postgres
+    password: Saha@6462++
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+springdoc:
+  api-docs:
+    path: /api-docs
+    version: openapi_3_0
+  swagger-ui:
+    operations-sorter: method
+    path: /swagger-ui.html
+    version: 3.0.0
