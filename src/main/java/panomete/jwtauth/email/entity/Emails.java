@@ -1,4 +1,4 @@
 package panomete.jwtauth.email.entity;
 
-public class AppEmail {
+public class Emails {
 }
