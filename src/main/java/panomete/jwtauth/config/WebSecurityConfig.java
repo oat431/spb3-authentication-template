@@ -29,7 +29,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
     final JwtEntryPoint jwtEntryPoint;
-    final JwtFilter jwtFilter;
+//    final JwtFilter jwtFilter;
 
     private static final String[] FREE_AREA = {
             "/api-docs/**",
@@ -70,7 +70,7 @@ public class WebSecurityConfig {
                         .requestMatchers(USER_WHITELIST).hasAuthority("USER")
                         .anyRequest().authenticated()
                 );
-        http.addFilterBefore(authFilter(), UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(authFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -85,10 +85,10 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public JwtFilter authFilter() {
-        return new JwtFilter();
-    }
+//    @Bean
+//    public JwtFilter authFilter() {
+//        return new JwtFilter();
+//    }
 
     @Bean
     public WebSecurityCustomizer configure() {
