@@ -7,7 +7,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import panomete.jwtauth.security.dao.AuthDao;
+import panomete.jwtauth.security.entity.Authorities;
 import panomete.jwtauth.security.entity.Location;
+import panomete.jwtauth.security.entity.Roles;
 import panomete.jwtauth.security.entity.Users;
 import panomete.jwtauth.security.payload.request.RegisterRequest;
 import panomete.jwtauth.security.payload.request.UpdateRequest;
@@ -16,7 +18,7 @@ import panomete.jwtauth.security.payload.request.UpdateRequest;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     final AuthDao authDao;
-    private PasswordEncoder encoder = new BCryptPasswordEncoder();
+    private final PasswordEncoder encoder = new BCryptPasswordEncoder();
     @Override
     public Users getUserByUsername(String username) {
         return authDao.getUserByUsername(username);
@@ -34,6 +36,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Users createUser(RegisterRequest user) {
+        Authorities role = authDao.getAuthorityByName(Roles.ROLE_USER);
+
         Location location = Location.builder()
                 .address(user.getAddress())
                 .city(user.getCity())
@@ -41,6 +45,8 @@ public class AuthServiceImpl implements AuthService {
                 .country(user.getCountry())
                 .zip(user.getZip())
                 .build();
+        authDao.saveLocation(location);
+
         Users newUser = Users.builder()
                 .profilePicture(user.getProfilePicture())
                 .username(user.getUsername())
@@ -52,6 +58,7 @@ public class AuthServiceImpl implements AuthService {
                 .tel(user.getTel())
                 .birthday(user.getBirthday())
                 .location(location)
+                .authorities(role)
                 .build();
         return authDao.saveUser(newUser);
     }
@@ -68,6 +75,7 @@ public class AuthServiceImpl implements AuthService {
         location.setState(user.getState());
         location.setCountry(user.getCountry());
         location.setZip(user.getZip());
+        authDao.saveLocation(location);
 
         oldUser.setProfilePicture(user.getProfilePicture());
         oldUser.setPlatformName(user.getPlatformName());

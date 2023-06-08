@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import panomete.jwtauth.security.entity.Users;
 import panomete.jwtauth.security.payload.request.RegisterRequest;
 import panomete.jwtauth.security.service.AuthService;
+import panomete.jwtauth.utility.DtoMapper;
 
 @Controller
 @RequestMapping("/api/v1/auth")
@@ -30,7 +32,9 @@ public class AuthController {
     @PostMapping("/signup")
     @Operation(summary = "Create a new user", description = "Create a new user")
     public ResponseEntity<?> createUserAccount(@RequestBody RegisterRequest user){
-        authService.createUser(user);
-        return ResponseEntity.ok("User created successfully!");
+        Users newAccount = authService.createUser(user);
+        return ResponseEntity.ok(
+                DtoMapper.INSTANCE.toAuthDto(newAccount)
+        );
     }
 }

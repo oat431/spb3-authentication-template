@@ -55,6 +55,14 @@ public class Users implements UserDetails {
         return LocalDate.now().getYear() - birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getYear();
     }
 
+    public String getUserId() {
+        return id.toString();
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(this.authorities.getName().name()));
