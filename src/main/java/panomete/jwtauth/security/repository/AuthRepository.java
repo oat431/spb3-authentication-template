@@ -5,4 +5,5 @@ import panomete.jwtauth.security.entity.Users;
 
 public interface AuthRepository extends JpaRepository<Users, Long> {
     Users findByUsername(String username);
+    Users findByEmail(String email);
 }

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -17,7 +19,7 @@ public class RegisterRequest {
     String lastName;
     String tel;
     String password;
-    String birthday;
+    Date birthday;
     String email;
     String address;
     String city;

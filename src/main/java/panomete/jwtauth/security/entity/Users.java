@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import panomete.jwtauth.utility.JwtTokenUtil;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -36,8 +35,12 @@ public class Users implements UserDetails {
     String tel;
     String password;
     Date birthday;
-    Date lastPasswordReset;
-    Boolean enables;
+
+    @Builder.Default
+    Date lastPasswordReset = Date.from(LocalDate.of(2023, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+    @Builder.Default
+    Boolean enables = true;
 
     @Email
     String email;

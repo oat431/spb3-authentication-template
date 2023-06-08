@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -15,7 +17,7 @@ public class UpdateRequest {
     String firstName;
     String lastName;
     String tel;
-    String birthday;
+    Date birthday;
     String address;
     String city;
     String state;

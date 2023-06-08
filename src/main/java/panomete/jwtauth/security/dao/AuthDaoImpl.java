@@ -13,4 +13,19 @@ public class AuthDaoImpl implements AuthDao {
     public Users getUserByUsername(String username) {
         return authRepository.findByUsername(username);
     }
+
+    @Override
+    public Users getUserByEmail(String email) {
+        return authRepository.findByEmail(email);
+    }
+
+    @Override
+    public Users getUserById(Long id) {
+        return authRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Users saveUser(Users user) {
+        return authRepository.save(user);
+    }
 }
