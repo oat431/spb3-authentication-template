@@ -26,7 +26,7 @@ public class JwtTokenUtil implements Serializable {
 
     public String generateJWT(Users user, Long expiration) {
         Map<String,Object> claims = new HashMap<>();
-        claims.put(CLAIM_KEY_ID, user.getId());
+        claims.put(CLAIM_KEY_ID, user.getId().toString());
         claims.put(CLAIM_KEY_USERNAME, user.getUsername());
         claims.put(CLAIM_KEY_ROLE, user.getSimpleAuthorities());
         claims.put(CLAIM_KEY_CREATED, new Date());

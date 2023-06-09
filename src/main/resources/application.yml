@@ -21,3 +21,5 @@ springdoc:
     syntax-highlight:
       theme: monokai
       activated: true
+server:
+  port: 5000

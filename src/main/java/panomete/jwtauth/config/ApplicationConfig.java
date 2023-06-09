@@ -10,7 +10,7 @@ import panomete.jwtauth.security.repository.AuthoritiesRepository;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class AppConfig implements ApplicationListener<ApplicationReadyEvent> {
+public class ApplicationConfig implements ApplicationListener<ApplicationReadyEvent> {
     final AuthoritiesRepository authoritiesRepository;
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
