@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 import panomete.jwtauth.security.entity.Users;
@@ -18,13 +19,14 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
     final JwtTokenUtil jwtTokenUtil;
+
     final AuthService authService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader("Authorization");
-        log.info(token);
         if(token != null) {
+            token = token.substring(7);
             String username = jwtTokenUtil.getUsernameFromToken(token);
             Users user = authService.getUserByUsername(username);
             if (user != null && jwtTokenUtil.isTokenValid(token, user)) {

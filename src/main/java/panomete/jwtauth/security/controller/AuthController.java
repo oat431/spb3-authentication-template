@@ -38,7 +38,6 @@ public class AuthController {
     final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     /*
      * todo: implement auth controller by
-     * - /auth/details (GET) (required token)
      * - /auth/refresh (GET)
      * - /auth/credentials (GET)
      * - /auth/forgot-password (POST)
@@ -48,25 +47,9 @@ public class AuthController {
     @Operation(summary = "Login", description = "Login")
     public ResponseEntity<?> login(@RequestBody LoginRequest login){
         if(login.getUsername() == null){
-            try{
-                Authentication authentication = authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(login.getEmail(), login.getPassword())
-                );
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            } catch (Exception e){
-                log.info(e.getMessage());
-            }
             return ResponseEntity.ok(createToken(loginWithEmail(login.getEmail(), login.getPassword())));
         }
         if(login.getEmail() == null){
-            try{
-                Authentication authentication = authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword())
-                );
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            } catch (Exception e){
-                log.info(e.getMessage());
-            }
             return ResponseEntity.ok(createToken(loginWithUsername(login.getUsername(), login.getPassword())));
         }
         return ResponseEntity.badRequest().build();
@@ -80,12 +63,26 @@ public class AuthController {
 
     private Users loginWithUsername(String username, String password) {
         Users user = authService.getUserByUsername(username);
-        return !checkAuth(user,password) ? null : user;
+        return loginProcess(username, password, user);
     }
 
     private Users loginWithEmail(String email, String password) {
         Users user = authService.getUserByEmail(email);
-        return !checkAuth(user,password) ? null : user;
+        return loginProcess(email, password, user);
+    }
+
+    private Users loginProcess(String username, String password, Users user) {
+        if(!checkAuth(user,password)){return null;}
+        try{
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(username, password)
+            );
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            log.info("user {} successfully logged in", username);
+        } catch (Exception e){
+            log.error("login process error: {}", e.getMessage());
+        }
+        return user;
     }
 
     private Boolean checkAuth(Users user, String password){
@@ -108,9 +105,8 @@ public class AuthController {
     @SecurityRequirement(name = "Bearer Authentication")
     @Operation(summary = "Get user details", description = "Get user details")
     public ResponseEntity<?> getUserDetails(HttpServletRequest request){
-        String token = request.getHeader("Authorization");
-        log.info(token.substring(7));
-        String username = jwtTokenUtil.getUsernameFromToken(token.substring(7));
+        String token = request.getHeader("Authorization").substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
         Users user = authService.getUserByUsername(username);
         return ResponseEntity.ok(
                 DtoMapper.INSTANCE.toAuthDto(user)

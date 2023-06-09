@@ -21,6 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
+import panomete.jwtauth.security.entity.Roles;
 import panomete.jwtauth.security.repository.AuthRepository;
 import panomete.jwtauth.utility.JwtEntryPoint;
 import panomete.jwtauth.utility.JwtFilter;
@@ -71,9 +72,10 @@ public class WebSecurityConfig {
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((request) -> request
                         .requestMatchers(FREE_AREA).permitAll()
-                        .requestMatchers(ACCOUNT_WHITELIST).hasAnyAuthority("ADMIN", "USER")
-                        .requestMatchers(ADMIN_WHITELIST).hasAuthority("ADMIN")
-                        .requestMatchers(USER_WHITELIST).hasAuthority("USER")
+//                        .requestMatchers(ACCOUNT_WHITELIST).hasAnyAuthority(Roles.ROLE_ADMIN.name(), Roles.ROLE_USER.name())
+                        .requestMatchers(ACCOUNT_WHITELIST).permitAll()
+                        .requestMatchers(ADMIN_WHITELIST).hasAuthority(Roles.ROLE_ADMIN.name())
+                        .requestMatchers(USER_WHITELIST).hasAuthority(Roles.ROLE_USER.name())
                         .anyRequest().authenticated()
                 );
         http.authenticationProvider(authenticationProvider());

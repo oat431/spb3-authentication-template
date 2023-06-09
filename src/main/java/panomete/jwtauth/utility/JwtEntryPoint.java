@@ -14,6 +14,7 @@ import java.io.Serializable;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class JwtEntryPoint implements AuthenticationEntryPoint, Serializable {
     @Serial
     private static final long serialVersionUID = -7858869558953243875L;
@@ -24,6 +25,7 @@ public class JwtEntryPoint implements AuthenticationEntryPoint, Serializable {
             HttpServletResponse response,
             AuthenticationException authException
     ) throws IOException {
+        log.error("Unauthorized error: {}", authException.getMessage());
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
     }
 }
