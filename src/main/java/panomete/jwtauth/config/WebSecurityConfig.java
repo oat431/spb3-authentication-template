@@ -49,6 +49,7 @@ public class WebSecurityConfig {
 
     private static final String[] ACCOUNT_WHITELIST = {
             "/api/v1/auth/details",
+            "/api/v1/auth/credentials",
             "/api/v1/auth/password",
             "/api/v1/auth/email",
             "/api/v1/auth/username",
