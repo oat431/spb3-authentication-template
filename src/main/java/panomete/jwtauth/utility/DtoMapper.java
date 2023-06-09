@@ -22,7 +22,7 @@ public interface DtoMapper {
      */
 
     @Mappings({
-            @Mapping(target = "id", expression = "java(user.getId().toString())"),
+            @Mapping(target = "id", expression = "java(user.getUserId())"),
             @Mapping(target = "age", expression = "java(user.getAge())"),
             @Mapping(target = "name", expression = "java(user.getFullName())"),
             @Mapping(target = "role", expression = "java(user.getSimpleAuthorities())")

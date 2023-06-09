@@ -74,10 +74,9 @@ public class AuthController {
     private Users loginProcess(String username, String password, Users user) {
         if(!checkAuth(user,password)){return null;}
         try{
-            Authentication authentication = authenticationManager.authenticate(
+            authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username, password)
             );
-            SecurityContextHolder.getContext().setAuthentication(authentication);
             log.info("user {} successfully logged in", username);
         } catch (Exception e){
             log.error("login process error: {}", e.getMessage());
@@ -104,10 +103,9 @@ public class AuthController {
     @GetMapping("/details")
     @SecurityRequirement(name = "Bearer Authentication")
     @Operation(summary = "Get user details", description = "Get user details")
-    public ResponseEntity<?> getUserDetails(HttpServletRequest request){
-        String token = request.getHeader("Authorization").substring(7);
-        String username = jwtTokenUtil.getUsernameFromToken(token);
-        Users user = authService.getUserByUsername(username);
+    public ResponseEntity<?> getUserDetails(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Users user = authService.getUserByUsername(auth.getName());
         return ResponseEntity.ok(
                 DtoMapper.INSTANCE.toAuthDto(user)
         );

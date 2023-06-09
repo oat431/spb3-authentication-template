@@ -72,8 +72,7 @@ public class WebSecurityConfig {
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((request) -> request
                         .requestMatchers(FREE_AREA).permitAll()
-//                        .requestMatchers(ACCOUNT_WHITELIST).hasAnyAuthority(Roles.ROLE_ADMIN.name(), Roles.ROLE_USER.name())
-                        .requestMatchers(ACCOUNT_WHITELIST).permitAll()
+                        .requestMatchers(ACCOUNT_WHITELIST).hasAnyAuthority(Roles.ROLE_ADMIN.name(), Roles.ROLE_USER.name())
                         .requestMatchers(ADMIN_WHITELIST).hasAuthority(Roles.ROLE_ADMIN.name())
                         .requestMatchers(USER_WHITELIST).hasAuthority(Roles.ROLE_USER.name())
                         .anyRequest().authenticated()

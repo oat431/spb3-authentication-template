@@ -6,7 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 import panomete.jwtauth.security.entity.Users;
@@ -30,7 +32,10 @@ public class JwtFilter extends OncePerRequestFilter {
             String username = jwtTokenUtil.getUsernameFromToken(token);
             Users user = authService.getUserByUsername(username);
             if (user != null && jwtTokenUtil.isTokenValid(token, user)) {
-                log.info("logged in as {}", username);
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), null, user.getAuthorities());
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                log.info("user {} perform some action", username);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
             } else {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
             }
