@@ -16,17 +16,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import panomete.jwtauth.security.entity.Users;
 import panomete.jwtauth.security.payload.request.LoginRequest;
 import panomete.jwtauth.security.payload.request.RegisterRequest;
+import panomete.jwtauth.security.payload.request.UpdateRequest;
 import panomete.jwtauth.security.payload.response.JwtResponse;
 import panomete.jwtauth.security.service.AuthService;
 import panomete.jwtauth.utility.DtoMapper;
 import panomete.jwtauth.utility.JwtTokenUtil;
+
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/api/v1/auth")
@@ -135,6 +135,18 @@ public class AuthController {
         String token = request.getHeader("Authorization").substring(7);
         return ResponseEntity.ok(
                 jwtTokenUtil.getClaimsFromToken(token)
+        );
+    }
+
+    @PutMapping("/")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @Operation(summary = "Update user details", description = "Update user details")
+    public ResponseEntity<?> updateUserDetails(@RequestBody UpdateRequest update) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UUID userId = authService.getUserByUsername(auth.getName()).getId();
+        Users updated = authService.updateUser(userId, update);
+        return ResponseEntity.ok(
+                DtoMapper.INSTANCE.toAuthDto(updated)
         );
     }
 }

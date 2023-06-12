@@ -14,6 +14,8 @@ import panomete.jwtauth.security.entity.Users;
 import panomete.jwtauth.security.payload.request.RegisterRequest;
 import panomete.jwtauth.security.payload.request.UpdateRequest;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
@@ -30,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Users getUserById(Long id) {
+    public Users getUserById(UUID id) {
         return authDao.getUserById(id);
     }
 
@@ -64,7 +66,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Users updateUser(Long userId,UpdateRequest user) {
+    public Users updateUser(UUID userId,UpdateRequest user) {
         Users oldUser = authDao.getUserById(userId);
         if (oldUser == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Not found user id:" + userId);

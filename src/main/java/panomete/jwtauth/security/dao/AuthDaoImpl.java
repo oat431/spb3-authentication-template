@@ -10,6 +10,8 @@ import panomete.jwtauth.security.repository.AuthRepository;
 import panomete.jwtauth.security.repository.AuthoritiesRepository;
 import panomete.jwtauth.security.repository.LocationRepository;
 
+import java.util.UUID;
+
 @Repository
 @RequiredArgsConstructor
 public class AuthDaoImpl implements AuthDao {
@@ -27,8 +29,8 @@ public class AuthDaoImpl implements AuthDao {
     }
 
     @Override
-    public Users getUserById(Long id) {
-        return authRepository.findById(id).orElse(null);
+    public Users getUserById(UUID id) {
+        return authRepository.findById(id);
     }
 
     @Override
