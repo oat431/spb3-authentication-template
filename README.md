@@ -119,3 +119,9 @@ body: {
 - [ ] Add OTP verification
 - [ ] Add 2FA
 
+## Todo Next
+- [ ] Add unit test
+- [ ] Add integration test
+- [ ] Add docker
+- [ ] Add CI/CD
+- [ ] Add documentation
