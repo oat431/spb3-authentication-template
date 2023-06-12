@@ -1,11 +1,9 @@
 package panomete.jwtauth.security.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import panomete.jwtauth.security.dao.AuthDao;
 import panomete.jwtauth.security.entity.Authorities;
 import panomete.jwtauth.security.entity.Location;
@@ -68,9 +66,6 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public Users updateUser(UUID userId,UpdateRequest user) {
         Users oldUser = authDao.getUserById(userId);
-        if (oldUser == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Not found user id:" + userId);
-        }
         Location location = oldUser.getLocation();
         location.setAddress(user.getAddress());
         location.setCity(user.getCity());

@@ -41,10 +41,10 @@ public class AuthController {
 
     /*
      * todo: implement auth controller by
-     * - /auth/forgot-password (POST)
-     * - /auth/reset-password (POST)
-     * - /auth/email (POST)
-     * - /auth/username (POST)
+     * - /auth/forgot-password (PATCH)
+     * - /auth/reset-password (PATCH)
+     * - /auth/email (PATCH)
+     * - /auth/username (PATCH)
      */
     @PostMapping("/")
     @Operation(summary = "Login", description = "Login")
