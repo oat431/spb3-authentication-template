@@ -1,5 +1,5 @@
 # 2023 version of JWT authentication using Spring Boot and Spring Security
-- This will be use as a backbone of my future projects
+- This will be used as a backbone of my future projects
 - It will be role based authentication
 
 ## Features

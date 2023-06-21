@@ -26,8 +26,6 @@ import panomete.jwtauth.security.repository.AuthRepository;
 import panomete.jwtauth.utility.JwtEntryPoint;
 import panomete.jwtauth.utility.JwtFilter;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity

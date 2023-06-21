@@ -3,16 +3,16 @@ package panomete.jwtauth.utility;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import panomete.jwtauth.security.entity.Users;
 
 import javax.crypto.spec.SecretKeySpec;
+import java.io.Serial;
 import java.io.Serializable;
 import java.security.Key;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Date;
 
 @Component
 public class JwtTokenUtil implements Serializable {
@@ -20,9 +20,10 @@ public class JwtTokenUtil implements Serializable {
     static final String CLAIM_KEY_ID = "id";
     static final String CLAIM_KEY_ROLE = "role";
     static final String CLAIM_KEY_CREATED = "created";
+    @Serial
     private static final long serialVersionUID = -2550185165626007488L;
 
-    private String secret = "F-JaNdRgUkXp2s5v8y/B?E(G+KbPeShVmYq3t6w9z$C&F)J@McQfTjWnZr4u7x!A";
+    private final String secret = "F-JaNdRgUkXp2s5v8y/B?E(G+KbPeShVmYq3t6w9z$C&F)J@McQfTjWnZr4u7x!A";
 
     private final Key key = new SecretKeySpec(secret.getBytes(), SignatureAlgorithm.HS512.getJcaName());
 

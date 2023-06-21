@@ -1,13 +1,13 @@
 package panomete.jwtauth;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SuiteDisplayName;
+import panomete.jwtauth.security.UserTest;
 
-@SpringBootTest
-class JwtauthApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+@Suite
+@SuiteDisplayName("Spring boot 3 JWT auth test suite")
+@SelectClasses({
+		UserTest.class
+})
+class JwtauthApplicationTests { }
