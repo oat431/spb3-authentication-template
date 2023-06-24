@@ -29,10 +29,16 @@ public class Users implements UserDetails {
 
     String profilePicture;
     String platformName;
+
+    @Column(unique = true)
     String username;
+
     String firstName;
     String lastName;
+
+    @Column(unique = true)
     String tel;
+
     String password;
     Date birthday;
 
@@ -43,6 +49,7 @@ public class Users implements UserDetails {
     Boolean enables = true;
 
     @Email
+    @Column(unique = true)
     String email;
 
     @OneToOne
