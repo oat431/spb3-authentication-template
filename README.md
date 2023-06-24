@@ -120,9 +120,9 @@ body: {
 - [ ] Add 2FA
 
 ## Todo Next
-- [ ] Add Graalvm Building tools to the project
-- [ ] Add unit test
+- [x] Add Graalvm Building tools to the project
+- [x] Add unit test
 - [ ] Add integration test
 - [ ] Containerized using Docker
 - [ ] Create Auto CI/CD
-- [ ] Add documentation
+- [x] Add documentation
