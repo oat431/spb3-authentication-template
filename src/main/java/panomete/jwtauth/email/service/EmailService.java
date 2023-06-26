@@ -1,4 +1,4 @@
 package panomete.jwtauth.email.service;
 
-public class EmailService {
+public interface EmailService {
 }

@@ -90,7 +90,7 @@ public class AuthController {
         return user;
     }
 
-    private Boolean checkAuth(Users user, String password) {
+    private boolean checkAuth(Users user, String password) {
         return user != null && passwordEncoder.matches(password, user.getPassword());
     }
 

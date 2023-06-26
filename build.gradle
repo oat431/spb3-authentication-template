@@ -3,6 +3,8 @@ plugins {
 	id 'org.springframework.boot' version '3.1.0'
 	id 'io.spring.dependency-management' version '1.1.0'
 	id 'org.graalvm.buildtools.native' version '0.9.20'
+	id "org.sonarqube" version "4.2.1.3168"
+	id "jacoco"
 }
 
 group = 'panomete'
@@ -21,6 +23,25 @@ repositories {
 
 springBoot {
 	buildInfo()
+}
+
+sonar {
+	properties {
+		property "sonar.projectKey", "spb3-jwt-auth"
+		property "sonar.projectName", "spb3-jwt-auth"
+		property "sonar.host.url", "http://localhost:9000"
+		property "sonar.token", "sqp_beadaf2f51a976e989830077d5016f6478e62fb1"
+	}
+}
+jacoco {
+	toolVersion = "0.8.8"
+}
+jacocoTestReport {
+	reports {
+		html.enabled true
+		xml.enabled true
+		xml.destination file("${buildDir}/reports/jacoco.xml")
+	}
 }
 
 dependencies {

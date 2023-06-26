@@ -72,9 +72,9 @@ public class WebSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling((exception) -> exception.authenticationEntryPoint(jwtEntryPoint))
-                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests((request) -> request
+                .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtEntryPoint))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(request -> request
                         .requestMatchers(FREE_AREA).permitAll()
                         .requestMatchers(ACCOUNT_WHITELIST).hasAnyAuthority(Roles.ROLE_ADMIN.name(), Roles.ROLE_USER.name())
                         .requestMatchers(ADMIN_WHITELIST).hasAuthority(Roles.ROLE_ADMIN.name())
@@ -112,7 +112,7 @@ public class WebSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer configure() {
-        return (web) -> web.httpFirewall(allowUrlEncodedSlashHttpFirewall());
+        return web -> web.httpFirewall(allowUrlEncodedSlashHttpFirewall());
     }
 
     @Bean

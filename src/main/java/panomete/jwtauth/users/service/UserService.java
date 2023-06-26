@@ -1,4 +1,4 @@
 package panomete.jwtauth.users.service;
 
-public class UserService {
+public interface UserService {
 }

@@ -1,4 +1,4 @@
 package panomete.jwtauth.admins.service;
 
-public class AdminService {
+public interface AdminService {
 }
