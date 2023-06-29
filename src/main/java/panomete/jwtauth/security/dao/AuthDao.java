@@ -13,6 +13,8 @@ public interface AuthDao {
     Users getUserById(UUID id);
     Users saveUser(Users user);
 
+    Users deleteUser(Users user);
+
     Authorities saveAuthority(Authorities authority);
     Authorities getAuthorityByName(Roles name);
 

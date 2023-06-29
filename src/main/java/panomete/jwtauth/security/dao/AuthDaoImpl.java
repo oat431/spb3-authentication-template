@@ -39,6 +39,12 @@ public class AuthDaoImpl implements AuthDao {
     }
 
     @Override
+    public Users deleteUser(Users user) {
+        authRepository.delete(user);
+        return user;
+    }
+
+    @Override
     public Authorities saveAuthority(Authorities authority) {
         return authoritiesRepository.save(authority);
     }
