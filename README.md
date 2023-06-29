@@ -124,5 +124,5 @@ body: {
 - [x] Add unit test
 - [ ] Add integration test
 - [x] Containerized using Docker
-- [ ] Create Auto CI/CD
+- [ ] Create Auto CI
 - [x] Add documentation
