@@ -1,6 +1,6 @@
 FROM openjdk:17-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
-EXPOSE 5000
+EXPOSE 8080 8443
 
 ENV JAVA_PROFILE dev
 ARG DEPENDENCY=docker
