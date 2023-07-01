@@ -6,7 +6,7 @@
 
 ### Sign up
 
-```
+```ruby
 POST /api/v1/auth/signup
 body: {
     "profilepicture": "profilepicture",
@@ -18,19 +18,17 @@ body: {
     "tel": "tel",
     "password": "password",
     "birthday": "birthday",
-    "location": {
-        "address": "address",
-        "city": "city",
-        "state": "state",
-        "country": "country",
-        "zip": "zip"
-    },
+    "address": "address",
+    "city": "city",
+    "state": "state",
+    "country": "country",
+    "zip": "zip"
 }
 ```
 
 ### Sign in
 
-```
+```ruby
 POST /api/v1/auth/
 body: {
     "loginname": "loginname",
@@ -47,7 +45,7 @@ body: {
 
 #### Update Account Details
 
-```
+```ruby
 PUT /api/v1/auth/
 body: {
     "profilepicture": "profilepicture",
@@ -56,19 +54,17 @@ body: {
     "lastname": "lastname",
     "tel": "tel",
     "birthday": "birthday",
-    "location": {
-        "address": "address",
-        "city": "city",
-        "state": "state",
-        "country": "country",
-        "zip": "zip"
-    },
+    "address": "address",
+    "city": "city",
+    "state": "state",
+    "country": "country",
+    "zip": "zip"
 }
 ```
 
 #### Update Account Password
 
-```
+```ruby
 PATCH /api/v1/auth/password
 body: {
     "newPassword": "newPassword"
@@ -77,7 +73,7 @@ body: {
 
 #### Update Account Email
 
-```
+```ruby
 PATCH /api/v1/auth/email
 body: {
     "newEmail": "newEmail"
@@ -86,7 +82,7 @@ body: {
 
 #### Update Account username
 
-```
+```ruby
 PATCH /api/v1/auth/username
 body: {
     "newUsername": "newUsername"
@@ -94,12 +90,12 @@ body: {
 ```
 
 ### Delete Account
-```
+```ruby
 DELETE /api/v1/auth/
 ```
 
 ### Refresh token
-```
+```ruby
 POST /api/v1/auth/refresh
 body: {
     token: "token"
@@ -107,7 +103,7 @@ body: {
 ```
 
 ### Forgot password
-```
+```ruby
 POST /api/v1/auth/forgotpassword
 body: {
     email: "email"
